@@ -1,0 +1,250 @@
+// $mainBlue: #487eb0
+// $subBlue: #718093
+// p,
+// em
+// 	color: $subBlue
+// .my_box
+// 	background: $clouds
+// 	border-radius: 10px
+// .section-main-cv
+// 	margin-top: 30px
+// 	.container
+// 		.row
+// 			.info-col
+// 				padding: 40px
+// 				.avatar-box
+// 					margin-bottom: 5px
+// 					overflow: hidden
+// 					figuge
+// 						img
+// 							padding: 0
+// 					figcaption
+// 						.name
+// 							color: #487eb0
+// 						padding: 10px
+// 				.description-box
+// 					padding: 10px
+// 				+media-breakpoint-up(md)
+// 					padding: 0
+// 			.main-content-col
+// 				.my-decription-tabs
+// 					.nav-item
+// 						.nav-link
+// 							cursor: pointer
+// 							&.active
+// 								color: $mainBlue
+// 				.tabs-content-box
+// 					position: relative
+// 					.tab-content
+// 						display: none
+// 						padding: 30px
+// 						transition: all .5s ease-in-out
+// 						&.active
+// 							display: block
+// 							width: 100%
+// 						.ban-than-box
+// 							.item
+// 								padding: 30px
+// 								&:not(:first-child)
+// 									margin-top: 30px
+// 								.title
+// 									display: inline-block
+// 									margin-bottom: 30px
+// 									position: relative
+// 									color: $mainBlue
+// 									&:before
+// 										content: ''
+// 										display: block
+// 										position: absolute
+// 										bottom: -3px
+// 										background: $mainBlue
+// 										height: 2px
+// 										width: 100%
+// 							.education-box
+// 								p
+// 									font-weight: bold
+// 									span
+// 										font-weight: normal
+// 							.ability-box
+// 								.skill
+// 									.row
+// 										[class*='col-']
+// 											display: flex
+// 											justify-content: flex-end
+// 											align-items: center
+// 										.skill-name-col
+// 											p
+// 												margin-bottom: 0
+// 										.skill-level-col
+// 											.progress
+// 												width: 100%
+// 												background: #7979795c
+// 												.progress-bar
+// 													background: #dc7c65
+// 							.contact-box
+// 								.row
+// 									.col-md-6
+// 										p
+// 											font-weight: bold
+// 											span
+// 												font-weight: normal
+// 						.project-list-box
+// 							// project tab
+// 							.technology
+// 								padding: 10px
+// 								border-bottom: $asbestos 1px solid
+// 								.row
+// 									.project-name
+// 										.tech
+// 											color: $silver
+// 									.project-desc-col
+// 										.project-desc-box
+// 											.name
+// 												font-weight: bold
+// 												text-transform: uppercase
+// 												margin-bottom: 0
+
+// .skill-section
+// 	padding: 0
+// 	.ability-box
+// 		margin: 0
+// 		background: #1a1e23
+// 		.skill-box
+// 			padding: 40px
+// 			.row
+// 				margin: 0
+// 				.skill-col
+// 					.skill
+// 						p
+// 							color: white
+// 						.progress
+// 							width: 100%
+// 							background: #7979795c
+// 							.progress-bar
+// 								background: #ff9800
+// 								border-radius: 10px
+.section-experinent
+	margin-top: 100px
+	background: #ecf0f1 
+	.experinent-box
+		padding-top: 30px
+		.epx-list
+			list-style: none
+			padding-left: 0
+			position: relative
+			// mainline
+			&:before
+				content: ""
+				display: block
+				height: 100%
+				width: 2px
+				background: #ff9800
+				position: absolute
+				top: 0
+				left: 0
+				transform: translateX(-50%)
+			.epx-item
+				padding-left: 40px
+				position: relative
+				// circle
+				&:before
+					content: ""
+					display: block
+					height: 10px
+					width: 10px
+					border-radius: 50%
+					background: #ff9800
+					position: absolute
+					top: 30px
+					left: 0px
+					transform: translateX(-50%)
+				.item
+					display: flex
+					position: relative
+					margin: 30px 0
+					.content
+						width: 100%
+						padding: 30px
+						border-radius: 20px
+						position: relative
+						background: white
+						color: black
+						// triangle
+						&:before
+							content: ""
+							display: block
+							height: 30px
+							width: 30px
+							border-radius: 2px
+							background: inherit
+							position: absolute
+							top: 20px
+							left: 0%
+							transform: translateX(-50%) rotate(45deg)
+						h4
+							color: #ff9800
+							font-weight: 500
+						.role
+							margin-bottom: 5px
+						.date
+							margin-bottom: 10px
+							text-align: right
+							em
+								text-align: right
+								color: #999999
+						ul
+							li
+								margin-bottom: 10px
+								font-size: 1.2rem
+	+media-breakpoint-up(md)
+		.experinent-box
+			// padding: 0
+			.epx-list
+				// mainline
+				padding: 0
+				&:before
+					left: 50%
+				.epx-item
+					padding: 0
+					// circle
+					&:before
+						height: 20px
+						width: 20px
+						top: 20px
+						left: 50%
+						transform: translateX(-50%)
+					.item
+						margin: 40px 0
+						.content
+							width: 40%
+							h4
+							date
+							// triangle
+							&:before
+								content: ""
+								display: block
+								height: 30px
+								width: 30px
+								border-radius: 2px
+								background: inherit
+								position: absolute
+								top: 20px
+						&.right
+							flex-flow: row-reverse nowrap
+							.content
+								// triangle
+								&:before
+									left: 0%
+									transform: translateX(-50%) rotate(45deg)
+						&.left
+							flex-flow: row nowrap
+							.content
+								&:before
+									right: 0%
+									left: initial
+									transform: translateX(50%) rotate(45deg)
+						.empty
+							flex-grow: 1
+						
+
+
