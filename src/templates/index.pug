@@ -1,410 +1,309 @@
-doctype html
-html
-	head
-		meta(charset="utf-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		title Le Tran Anh Vu - CV
-		//- pageMeta
-		//- Lib CSS
-		link(href="//fonts.googleapis.com/css?family=Rancho|Open+Sans:400,300,300italic,400italic,600,600italic,700,800italic,700italic,800" rel="stylesheet")
-		link(href="minify/rgen_min.css" rel="stylesheet")
-		link(href="css/custom.css" rel="stylesheet")
-		//- Favicons
+
+extends _layout/layout
+
+block body
+	#page
+		//- Intro
 		
-			<link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-icon-57x57.png">
-			<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-icon-60x60.png">
-			<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-icon-72x72.png">
-			<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-icon-76x76.png">
-			<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-icon-114x114.png">
-			<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-icon-120x120.png">
-			<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-icon-144x144.png">
-			<link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-icon-152x152.png">
-			<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
-			<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-icon-192x192.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96x96.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
-		//- <link rel="manifest" href="images/favicons/manifest.json">
-		//- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-		//-if lt IE 9
-		script(src="js/html5shiv.js")
-		script(src="js/respond.min.js")
-		//-if IE 9 
-		script(src="js/ie-matchmedia.js")
-	body
-		#page
-			// Navigation
-			nav.nav-wrp.nav-1.dark(data-glass="y" data-sticky="y")
-				.container
-					.nav-header
-						a.navbar-brand(href="#")
-							i.fa.fa-train
-						a.nav-handle(data-nav=".nav")
-							i.fa.fa-bars
-					.nav.vm-item
-						ul.nav-links
-							li
-								a(href="#about-me") About me
-							li
-								a(href="#portfolio") Portfolio
-							li
-								a(href="#skill") Skill
-							li
-								a(href="#contact") Contact
-					// /.nav
-				// /.container
-			// /.nav-wrp
-			// Intro
-			section.intro-section.intro-section-13.bg-cover.bg-cc(data-bg="images/bg10.png")
-				.carousel-widget.ctrl-2(data-nav="true" data-items="1" data-itemrange="false" data-margin="0" data-hauto="false" data-center="true")
-					.owl-carousel
-						.item
-							.caption
-								h3.hd Creative Agency
-							.full-wh.bg-cover.bg-cc(data-bg="images/slide-img1.jpg")
-						// /.item
-						.item
-							.caption
-								h3.hd Premium Quality
-							.full-wh.bg-cover.bg-cc(data-bg="images/slide-img2.jpg")
-						// /.item
-						.item
-							.caption
-								h3.hd User Experience
-							.full-wh.bg-cover.bg-cc(data-bg="images/slide-img3.jpg")
-						// /.item
-					// /.owl-carousel
-				// /.carousel-widget
-			// /.intro-section
-			// Features
-			section#about-me.feature-section.feature-section-3.about-me-section
-				.container
-					h3.title About me
-					.row.eqh
-						.about-me-info-col.col-md-8
-							.content
-								p
-									| Hi, My name's Vu, I'm a Front Developer with 1+ years of experience in front end
-									| development. I have developed projects for many companies in the country, both
-									| independently and in teams.
-								h4
-									| Objectives
-								p
-									| My professional objectives are to develop and create good websites for users. Besides
-									| programming I have good communication skills, always deliver on time and Guarantee 100%
-									| Satisfaction and Quality.
-								h4
-									| What I Do?
-								p
-									| I am very dedicated about web programming and willing to learn a new skill every day.
-									| I'm honesty, good comunication, responsible and always ready to work on something new.
-								.row.skill-row
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  HTML5
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  CSS3
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  SASS/SCSS
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  PUG
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  Bootstrap
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  Javascript
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  ES6
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  Angular 2+
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  Github
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  NodeJs
-									.col-xs-6.col-md-4
-										p
-											i.fa.fa-check
-											|  Gulp
+		//- Features
+		section#about-me.part-section.about-me-section
+			.container
+				h3.title About me
+				.row.eqh
+					.about-me-info-col.col-md-8
+						.content
+							p
+								| Hi, My name's Vu, I'm a Front Developer with 1+ years of experience in front end
+								| development. I have developed projects for many companies in the country, both
+								| independently and in teams.
+							h4
+								| Objectives
+							p
+								| My professional objectives are to develop and create good websites for users. Besides
+								| programming I have good communication skills, always deliver on time and Guarantee 100%
+								| Satisfaction and Quality.
+							h4
+								| What I Do?
+							p
+								| I am very dedicated about web programming and willing to learn a new skill every day.
+								| I'm honesty, good comunication, responsible and always ready to work on something new.
+							.row.skill-row
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  HTML5
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  CSS3
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  SASS/SCSS
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  PUG
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  Bootstrap
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  Javascript
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  ES6
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  Angular 2+
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  Github
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  NodeJs
+								.col-6.col-md-4
+									p
+										i.fa.fa-check
+										|  Gulp
+							.btn-outter
 								a.btn.btn-danger.view-cv-btn(href="https://drive.google.com/file/d/1XPkyjcqWHWHzL6D8BRuZ2noZhEhsSxjw" target="_blank") View My CV
-						.about-me-figure-col.col-md-4
-							.figure-box
-								figure
-									img.my-avatar.img-fluid(src="./images/avatar.jpg" alt="letrananhvu")
-								figcaption
-									ul
-										li
-											strong Name:
-											|  Le Tran Anh Vu
-										li
-											strong Date of birth:
-											|  15 July 1995
-										li
-											strong Address:
-											|  315/4 Thanh Xuan Ward, District 12, Ho Chi Minh City,
-											|                                         Viet Nam
-										li
-											strong Email:
-											|  vule5726@gmail.com
-										li
-											strong Phone:
-											|  (+84) 093 400 5431
-				// /.container
-			// /.feature-section
-			// Portfolio section
-			section#portfolio.portfolio-section.portfolio-section-2
-				.container
-					h2.title Projects
-					ul.rw.eq3.mb10.gt10.popgallery-widget
-						li.cl
-							a(href="https://letrananhvu.github.io/Chubb/mua-online/mua-online-buoc1" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd Chubb
-											p Angular 7
-									// /.overlay
-									img(src="images/projects-chubb-800x800.jpg" alt="image")
-							// /.portfolio-box
-						li.cl
-							a(href="https://bit.ly/2OZCS2b" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd An Cư Corp
-									// /.overlay
-									img(src="images/projects-ancu-800x800.jpg" alt="image")
-							// /.portfolio-box
-						li.cl
-							a(href="https://bit.ly/2R8oCpB" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd Fullstack VietNam
-									// /.overlay
-									img(src="images/projects-fs-800x800.jpg" alt="image")
-							// /.portfolio-box
-						li.cl
-							a(href="https://bit.ly/2QoFT0V" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd Website my pham
-									// /.overlay
-									img(src="images/projects-mypham-800x800.jpg" alt="image")
-							// /.portfolio-box
-						li.cl
-							a(href="https://bit.ly/2yJHMLq" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd Website địa ốc
-									// /.overlay
-									img(src="images/projects-diaoc-800x800.jpg" alt="image")
-							// /.portfolio-box
-						li.cl
-							a(href="https://github.com/LeTranAnhVu" title="portfolio" target="_blank")
-								.portfolio-box.portfolio-box1
-									.overlay
-										.caption
-											h3.hd More Projects
-									// /.overlay
-									img(src="images/projects-more-800x800.jpg" alt="image")
-							// /.portfolio-box
-					// /.rw
-			// / Portfolio section
-			// experinent
-			section.section-experinent.container-fluid
-				.experinent-box.container
-					h2.title  My Previous Work 
-					ul.epx-list
-						li.epx-item
-							.item.left
-								.content
-									h4
-										a(target="_blank" href="https://neta.edu.vn/") Neta VietNam
-									p.role
-										em As Frontend Developer
-									.date
-										em Jan 2018 - now
-									ul
-										li
-											| During the time I go to work. I also learning web development by myself on
-											| Udemy.com, Tree ...
-										li
-											| A half of 2018, I join the FullStack VietNam community where 
-											a#baonguyen(href="https://baonguyenyam.github.io/cv/" target="_blank")
-												| Mr. Bao Nguyen
-											span
-												| is my teacher. In here, I have
-												| gained a lot of skill as well as working with a lot of real-world projects.
-								.empty
-						li.epx-item
-							.item.right
-								.content
-									h4 Robert Bosch Engineering and Business Solutions VietNam
-									p.role
-										em As Software Engineer
-									.date
-										em Nov 2017 - Otc 2018
-									ul
-										li
-											| During a year working in 
-											strong
-												| the internaltional environment, I can be able
-												| to contact and discuss to the colleages around the world.
-										li Reading Document.
-										li Solving problem.
-										li Teamwork.
-								.empty
-						li.epx-item
-							.item.left
-								.content
-									h4 Bach Khoa University
-									p.role
-										em As Mechanical Engineer
-									.date
-										em 2013 - 2018
-									ul
-										li Falcuty: Automotive Engineering.
-										li GPA: 8/10
-										li
-											| Although I had not learning IT falcuty, I had learned the basic programing
-											| concept like:
-											strong  data structure & algorithm, C and C++ language ...
-								.empty
-			// /experinent
-			// skill
-			section#skill.skill-section.container-fluid
-				.ability-box.container
-					h2.title  Skill 
-					.skill-box
-						.row
-							.col-md-6.skill-col
-								.skill
-									p
-										| HTML5 & CSS3
-										span 90%
-									.progress
-										.progress-bar(style="width:90%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Bootstrap & Responsive
-										span 85%
-									.progress
-										.progress-bar(style="width:85%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| SASS/ SCSS
-										span 75%
-									.progress
-										.progress-bar(style="width:75%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Javascript/ ES6 & Jquery
-										span 90%
-									.progress
-										.progress-bar(style="width:90%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Github
-										span 70%
-									.progress
-										.progress-bar(style="width:70%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Angular 2+
-										span 70%
-									.progress
-										.progress-bar(style="width:70%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| NodeJs
-										span 80%
-									.progress
-										.progress-bar(style="width:80%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Gulp
-										span 90%
-									.progress
-										.progress-bar(style="width:90%")
-							.col-md-6.skill-col
-								.skill
-									p
-										| Wordpress
-										span 70%
-									.progress
-										.progress-bar(style="width:70%")
-			// /skill
-			// / Contact section
-			section#contact.contact-section.contact-section-2
-				.container
-					.row
-						.col-md-6.col-md-offset-1.r
+					.about-me-figure-col.col-md-4
+						.figure-box
+							figure
+								img.my-avatar.img-fluid(src="./img/avatar.jpg" alt="letrananhvu")
+							figcaption
+								ul
+									li
+										strong Name:
+										|  Le Tran Anh Vu
+									li
+										strong Date of birth:
+										|  15 July 1995
+									li
+										strong Address:
+										|  315/4 Thanh Xuan Ward, District 12, Ho Chi Minh City,
+										|                                         Viet Nam
+									li
+										strong Email:
+										|  vule5726@gmail.com
+									li
+										strong Phone:
+										|  (+84) 093 400 5431
+
+		//- Portfolio section
+		section#portfolio.part-section.portfolio-section.portfolio-section-2
+			.container
+				h2.title Projects
+				.row
+					.col-sm-6.col-md-4
+						a(href="https://letrananhvu.github.io/Chubb/mua-online/mua-online-buoc1" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd Chubb
+										p Angular 7
+								img(src="./img/projects-chubb-800x800.jpg" alt="image")
+					.col-sm-6.col-md-4
+						a(href="https://bit.ly/2OZCS2b" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd An Cư Corp
+								img(src="./img/projects-ancu-800x800.jpg" alt="image")
+					.col-sm-6.col-md-4
+						a(href="https://bit.ly/2R8oCpB" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd Fullstack VietNam
+								img(src="./img/projects-fs-800x800.jpg" alt="image")
+					.col-sm-6.col-md-4
+						a(href="https://bit.ly/2QoFT0V" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd Website my pham
+								img(src="./img/projects-mypham-800x800.jpg" alt="image")
+					.col-sm-6.col-md-4
+						a(href="https://bit.ly/2yJHMLq" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd Website địa ốc
+								img(src="./img/projects-diaoc-800x800.jpg" alt="image")
+					.col-sm-6.col-md-4
+						a(href="https://github.com/LeTranAnhVu" title="portfolio" target="_blank")
+							.portfolio-box.portfolio-box1
+								.overlay
+									.caption
+										h3.hd More Projects
+								img(src="./img/projects-more-800x800.jpg" alt="image")
+				
+		
+		//- Work experinent
+		section.section-experinent.container-fluid
+			.experinent-box.container
+				h2.title  My Previous Work 
+				ul.epx-list
+					li.epx-item
+						.item.left
 							.content
-								h2.title Contact me
-								//
-									<p class="title-sub mini">Những thiết kế viên, chuyên viên
-									<br>sáng tạo nội dung chúng tôi sẽ lên ý tưởng và thiết kế giao diện cũng như lan trãi
-									thông tin sản phẩm phù hợp với đặc trưng của doanh nghiệp.</p>
-								.info-box.info-box5
-									.img
-										i.fa.fa-map-marker.cm-item
-									.info
-										h3.hd Address
-										p.sub-txt 315/4 Thanh Xuan Ward, District 12, Ho Chi Minh City, Viet Nam
-								// Address
-								.info-box.info-box5
-									.img
-										i.fa.fa-phone.cm-item
-									.info
-										h3.hd Call me on
-										p.sub-txt (+84) 093 400 5431
-								// Call us
-								.info-box.info-box5
-									.img
-										i.fa.fa-envelope-o.cm-item
-									.info
-										h3.hd Email me on
-										p.sub-txt
-											a(href="mailto:admin@fullstackvietnam.com") vule5726@gmail.com
-								// Email us
-							// /.content
-						// /.col-md-6
-					// / row
-				// / container-fluid
-			// /contact-section
-			// Footer section
-			section.footer-section.footer-section-6
-				.container
-					p.copyright © Le Tran Anh Vu- 2018
-			// ./Footer section
-		// /#page
-		// JavaScript
-		script(src="minify/rgen_min.js")
-		script(async="" src="js/rgen.js")
+								h4
+									a(target="_blank" href="https://neta.edu.vn/") Neta VietNam
+								p.role
+									em As Frontend Developer
+								.date
+									em Jan 2018 - now
+								ul
+									li
+										| During the time I go to work. I also learning web development by myself on
+										| Udemy.com, Tree ...
+									li
+										| A half of 2018, I join the FullStack VietNam community where 
+										a#baonguyen(href="https://baonguyenyam.github.io/cv/" target="_blank")
+											| Mr. Bao Nguyen
+										span
+											| is my teacher. In here, I have
+											| gained a lot of skill as well as working with a lot of real-world projects.
+							.empty
+					li.epx-item
+						.item.right
+							.content
+								h4 Robert Bosch Engineering and Business Solutions VietNam
+								p.role
+									em As Software Engineer
+								.date
+									em Nov 2017 - Otc 2018
+								ul
+									li
+										| During a year working in 
+										strong
+											| the internaltional environment, I can be able
+											| to contact and discuss to the colleages around the world.
+									li Reading Document.
+									li Solving problem.
+									li Teamwork.
+							.empty
+					li.epx-item
+						.item.left
+							.content
+								h4 Bach Khoa University
+								p.role
+									em As Mechanical Engineer
+								.date
+									em 2013 - 2018
+								ul
+									li Falcuty: Automotive Engineering.
+									li GPA: 8/10
+									li
+										| Although I had not learning IT falcuty, I had learned the basic programing
+										| concept like:
+										strong  data structure & algorithm, C and C++ language ...
+							.empty
+		//- /experinent
+
+		//- skill
+		section#skill.skill-section.container-fluid
+			.ability-box.container
+				h2.title  Skill 
+				.skill-box
+					.row
+						.col-md-6.skill-col
+							.skill
+								p
+									| HTML5 & CSS3
+									span 90%
+								.progress
+									.progress-bar(style="width:90%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Bootstrap & Responsive
+									span 85%
+								.progress
+									.progress-bar(style="width:85%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| SASS/ SCSS
+									span 75%
+								.progress
+									.progress-bar(style="width:75%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Javascript/ ES6 & Jquery
+									span 90%
+								.progress
+									.progress-bar(style="width:90%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Github
+									span 70%
+								.progress
+									.progress-bar(style="width:70%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Angular 2+
+									span 70%
+								.progress
+									.progress-bar(style="width:70%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| NodeJs
+									span 80%
+								.progress
+									.progress-bar(style="width:80%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Gulp
+									span 90%
+								.progress
+									.progress-bar(style="width:90%")
+						.col-md-6.skill-col
+							.skill
+								p
+									| Wordpress
+									span 70%
+								.progress
+									.progress-bar(style="width:70%")
+		//- /skill
+		//- Contact section
+		section#contact.contact-section.contact-section-2
+			.container
+				.row
+					.col-md-6.col-md-offset-1.r
+						.content
+							h2.title Contact me
+							.info-box.info-box5
+								.img
+									i.fa.fa-map-marker.cm-item
+								.info
+									h3.hd Address
+									p.sub-txt 315/4 Thanh Xuan Ward, District 12, Ho Chi Minh City, Viet Nam
+							//- Address
+							.info-box.info-box5
+								.img
+									i.fa.fa-phone.cm-item
+								.info
+									h3.hd Call me on
+									p.sub-txt (+84) 093 400 5431
+							//- Call me
+							.info-box.info-box5
+								.img
+									i.fa.fa-envelope-o.cm-item
+								.info
+									h3.hd Email me on
+									p.sub-txt
+										a vule5726@gmail.com

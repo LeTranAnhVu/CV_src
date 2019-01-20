@@ -6313,7 +6313,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   height: 100%;
   width: 100%; }
@@ -6321,6 +6321,79 @@ html, body {
 @media print {
   .container {
     width: auto; } }
+
+ul {
+  list-style: none;
+  padding-left: 0; }
+
+.part-section {
+  padding-top: 100px;
+  padding-bottom: 50px; }
+  .part-section .title {
+    font-size: 50px;
+    text-transform: capitalize;
+    font-weight: 300;
+    color: #3b4c5c;
+    text-align: center;
+    margin-bottom: 50px; }
+
+.portfolio-section .portfolio-box {
+  position: relative; }
+  .portfolio-section .portfolio-box .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; }
+  .portfolio-section .portfolio-box img {
+    width: 100%; }
+  .portfolio-section .portfolio-box:hover .overlay {
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 1; }
+
+.about-me-section {
+  background: #c0cbd6; }
+  .about-me-section p, .about-me-section ul, .about-me-section li {
+    color: #8392a0; }
+  .about-me-section i {
+    color: #FF9800; }
+  .about-me-section .content .btn-outter {
+    margin: 20px 0; }
+    .about-me-section .content .btn-outter .view-cv-btn {
+      margin: auto;
+      display: block;
+      width: 150px;
+      font-size: 18px;
+      background: #d43f3a; }
+  .about-me-section .figure-box figure {
+    overflow: hidden;
+    border-radius: 50%;
+    max-width: 50%;
+    margin: 20px auto; }
+  .about-me-section .figure-box figcaption {
+    margin-left: 20px; }
+  @media (min-width: 768px) {
+    .about-me-section .figure-box figure {
+      max-width: 80%; } }
+
+.skill-section {
+  padding: 0; }
+  .skill-section .ability-box {
+    margin: 0;
+    background: #1a1e23; }
+    .skill-section .ability-box .skill-box {
+      padding: 40px; }
+      .skill-section .ability-box .skill-box .row {
+        margin: 0; }
+        .skill-section .ability-box .skill-box .row .skill-col .skill p {
+          color: white; }
+        .skill-section .ability-box .skill-box .row .skill-col .skill .progress {
+          width: 100%;
+          background: #7979795c; }
+          .skill-section .ability-box .skill-box .row .skill-col .skill .progress .progress-bar {
+            background: #ff9800;
+            border-radius: 10px; }
 
 .section-experinent {
   margin-top: 100px;
