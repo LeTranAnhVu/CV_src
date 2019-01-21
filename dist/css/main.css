@@ -6322,6 +6322,103 @@ html, body {
   .container {
     width: auto; } }
 
+header {
+  background: #1a1e23; }
+  header.scrolled {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 1px 20px 0 #1a1e23; }
+  header nav {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-direction: column; }
+    header nav .hamburger {
+      height: 30px;
+      width: 30px;
+      margin: 0;
+      margin-left: auto;
+      position: relative; }
+      header nav .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: white;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 1px;
+        transition: 0.2s all ease-in-out; }
+        header nav .hamburger span.span1 {
+          top: 18%; }
+        header nav .hamburger span.span2 {
+          top: 51%; }
+        header nav .hamburger span.span3 {
+          top: 82%; }
+      header nav .hamburger.close .span1 {
+        transform: rotate(45deg);
+        top: 51%;
+        left: 3px; }
+      header nav .hamburger.close .span2,
+      header nav .hamburger.close .span3 {
+        transform: rotate(-45deg);
+        top: 51%;
+        left: 3px; }
+    header nav .nav-items {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+      align-items: center;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #333;
+      padding: 0 20px;
+      height: 0;
+      overflow: hidden;
+      transition: 0.2s all ease-in-out; }
+      header nav .nav-items .nav-item .nav-link {
+        color: white;
+        font-size: 1.2rem;
+        transition: 0.5s all ease-in-out;
+        font-size: 300; }
+      header nav .nav-items .nav-item.active, header nav .nav-items .nav-item:active {
+        border-bottom: 1px #E31B6D solid; }
+        header nav .nav-items .nav-item.active .nav-link, header nav .nav-items .nav-item:active .nav-link {
+          color: #E31B6D; }
+      header nav .nav-items.wrapped {
+        width: 100%; }
+        header nav .nav-items.wrapped .nav-item {
+          width: 100%;
+          border-bottom: 1px white solid; }
+      header nav .nav-items.active {
+        height: 100vh; }
+  @media (min-width: 768px) {
+    header nav .hamburger {
+      display: none; }
+    header nav .nav-items {
+      height: 50px;
+      flex-direction: row;
+      position: static;
+      background: initial; }
+      header nav .nav-items .nav-item {
+        margin-left: 20px;
+        border: 0; }
+        header nav .nav-items .nav-item:hover, header nav .nav-items .nav-item.active {
+          border-bottom: 0; }
+          header nav .nav-items .nav-item:hover .nav-link, header nav .nav-items .nav-item.active .nav-link {
+            color: #E31B6D; }
+        header nav .nav-items .nav-item .nav-link {
+          color: white;
+          font-size: 1.2rem;
+          transition: 0.2s all ease-in-out;
+          font-size: 300; } }
+
 footer {
   background: #1a1e23;
   min-height: 50px;
@@ -6375,7 +6472,7 @@ ul {
       display: block;
       width: 150px;
       font-size: 18px;
-      background: #d43f3a; }
+      background: #E31B6D; }
   .about-me-section .figure-box figure {
     overflow: hidden;
     border-radius: 50%;
