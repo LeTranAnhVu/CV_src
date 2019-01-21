@@ -10,34 +10,60 @@ ul
 	list-style: none
 	padding-left: 0
 .part-section
-	padding-top: 100px 
+	padding-top: 50px 
 	padding-bottom: 50px
 	.title
-		font-size: 50px
+		font-size: 2.5rem
 		text-transform: capitalize
 		font-weight: 300
 		color: $xam
 		text-align: center
 		margin-bottom: 50px
+	+media-breakpoint-up(md)
+		padding-top: 50px
+		.title
+			margin-bottom: 80px
+			font-size: 3rem
 
 
 .portfolio-section
+	background: lighten($do,40)
+	.row
+		&>[class*="col-"]
+			a
+				display: block
+				margin-bottom: 20px
 	.portfolio-box
 		position: relative
+		box-shadow: 1px 0 2px 0px $xam
 		.overlay
 			position: absolute
 			bottom: 0
 			left: 0
 			width: 100%
 			height: 100%
-			opacity: 0
+			transform: scaleY(0)
+			overflow: hidden
+			// opacity: 0
+			
+			transition: 0.3s all ease-in-out
+			.caption
+				position: absolute
+				left: 0
+				bottom: 20px
+				padding-left: 20px
 
 		img
 			width: 100%
 		&:hover
 			.overlay
+				bottom: 0
+				transform: scaleY(1)
 				background: rgba(0, 0, 0, 0.75)
-				opacity: 1
+				// opacity: 1
+				color: white
+				
+
 
 
 .about-me-section
@@ -74,26 +100,32 @@ ul
 
 
 .skill-section
-	padding: 0
+	background: #1a1e23
 	.ability-box
-		margin: 0
-		background: #1a1e23
+		.title
+			color: white
 		.skill-box
 			padding: 40px
 			.row
 				margin: 0
 				.skill-col
 					.skill
+						padding-bottom: 30px
 						p
 							color: white
+							margin-bottom: 2px
+							span
+								// display: block
+								float: right
+								// margin-left: auto
 						.progress
 							width: 100%
 							background: #7979795c
+							border-radius: 1.25rem
 							.progress-bar
 								background: #ff9800
 								border-radius: 10px
 .section-experinent
-	margin-top: 100px
 	background: #ecf0f1 
 	.experinent-box
 		padding-top: 30px
@@ -215,5 +247,21 @@ ul
 						.empty
 							flex-grow: 1
 						
+
+
+.contact-section
+	.content
+		.info-box
+			display: flex
+			align-items: center
+			margin-bottom: 20px
+			.img
+				min-width: 50px
+				i
+					font-size: 2.5rem
+					color: #1a1e23
+			.info
+				.hd
+					font-weight: 700
 
 
