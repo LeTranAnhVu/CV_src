@@ -1,8 +1,12 @@
 
 $xam: #3b4c5c
 $tro: #8392a0
+$tro2: #616161
 $cam: #FF9800
 $do: #d43f3a
+// $xanhduong: #00A1A7
+$xanhduong: #04C2C9
+$xanhduong: #FF9800
 
 
 // global
@@ -12,10 +16,11 @@ ul
 .part-section
 	padding-top: 50px 
 	padding-bottom: 50px
+	position: relative
 	.title
 		font-size: 2.5rem
-		text-transform: capitalize
-		font-weight: 300
+		text-transform: uppercase
+		font-weight: 700
 		color: $xam
 		text-align: center
 		margin-bottom: 50px
@@ -24,10 +29,54 @@ ul
 		.title
 			margin-bottom: 80px
 			font-size: 3rem
+		// triangle
+	.triangle
+		background: #1a1e23
+		height: 80px
+		width: 100%
+		position: absolute
+		top: 0
+		left: 0
+		clip-path: polygon(0 0, 100% 0, 50% 100%)
+
+
+
+
+
+.about-me-section
+	background: #f5f5f5
+	p, ul, li
+		color: $tro2
+	i
+		color: $cam
+	.content
+		.btn-outter
+			margin: 20px 0
+			.view-cv-btn
+				margin: auto
+				display: block
+				width: 150px
+				font-size: 18px
+				background: $do
+	.figure-box
+		figure
+			overflow: hidden
+			border-radius: 50%
+			max-width: 50%
+			margin: 20px auto
+		figcaption
+			margin-left: 20px
+			ul
+				li
+					& strong
+						color: $tro2
+		+media-breakpoint-up(md)
+			figure
+				max-width: 80%
 
 
 .portfolio-section
-	background: lighten($do,40)
+	
 	.row
 		&>[class*="col-"]
 			a
@@ -62,84 +111,23 @@ ul
 				background: rgba(0, 0, 0, 0.75)
 				// opacity: 1
 				color: white
-				
 
-
-
-.about-me-section
-	background: lighten($xam,50)
-	
-	p, ul, li
-		color: $tro
-	i
-		color: $cam
-	.content
-		.btn-outter
-			margin: 20px 0
-			.view-cv-btn
-				margin: auto
-				display: block
-				width: 150px
-				font-size: 18px
-				background: $do
-	.figure-box
-		figure
-			overflow: hidden
-			border-radius: 50%
-			max-width: 50%
-			margin: 20px auto
-		figcaption
-			margin-left: 20px
-		+media-breakpoint-up(md)
-			figure
-				max-width: 80%
-
-
-
-
-
-
-.skill-section
-	background: #1a1e23
-	.ability-box
-		.title
-			color: white
-		.skill-box
-			padding: 40px
-			.row
-				margin: 0
-				.skill-col
-					.skill
-						padding-bottom: 30px
-						p
-							color: white
-							margin-bottom: 2px
-							span
-								// display: block
-								float: right
-								// margin-left: auto
-						.progress
-							width: 100%
-							background: #7979795c
-							border-radius: 1.25rem
-							.progress-bar
-								background: #ff9800
-								border-radius: 10px
 .section-experinent
-	background: #ecf0f1 
+	background: #f5f5f5
 	.experinent-box
 		padding-top: 30px
 		.epx-list
 			list-style: none
 			padding-left: 0
 			position: relative
+
 			// mainline
 			&:before
 				content: ""
 				display: block
 				height: 100%
 				width: 2px
-				background: #ff9800
+				background: $cam
 				position: absolute
 				top: 0
 				left: 0
@@ -154,7 +142,7 @@ ul
 					height: 10px
 					width: 10px
 					border-radius: 50%
-					background: #ff9800
+					background: $cam
 					position: absolute
 					top: 30px
 					left: 0px
@@ -183,8 +171,10 @@ ul
 							left: 0%
 							transform: translateX(-50%) rotate(45deg)
 						h4
-							color: #ff9800
-							font-weight: 500
+							color: $xanhduong
+							font-weight: 700
+							a
+								color: inherit
 						.role
 							margin-bottom: 5px
 						.date
@@ -194,9 +184,14 @@ ul
 								text-align: right
 								color: #999999
 						ul
+							list-style: circle
 							li
+								color: $xam
 								margin-bottom: 10px
-								font-size: 1.2rem
+								font-size: 1rem
+								#baonguyen
+									color: $xam
+
 	+media-breakpoint-up(md)
 		.experinent-box
 			// padding: 0
@@ -246,22 +241,62 @@ ul
 									transform: translateX(50%) rotate(45deg)
 						.empty
 							flex-grow: 1
+
+
+.skill-section
+	background: #1a1e23
+	.triangle
+		background: #f5f5f5
+	.ability-box
+		margin-top: 100px
+		.title
+			color: white
+		.skill-box
+			padding: 10px
+			.row
+				margin: 0
+				.skill-col
+					.skill
+						padding: 0 10px 30px 10px
+						p
+							color: white
+							margin-bottom: 10px
+							span
+								// display: block
+								float: right
+								// margin-left: auto
+						.progress
+							width: 100%
+							background: #7979795c
+							border-radius: 1.25rem
+							.progress-bar
+								background: #ff9800
+								border-radius: 10px
+
 						
 
 
 .contact-section
-	.content
-		.info-box
-			display: flex
-			align-items: center
-			margin-bottom: 20px
-			.img
-				min-width: 50px
-				i
-					font-size: 2.5rem
-					color: #1a1e23
-			.info
-				.hd
-					font-weight: 700
+	position: relative
+	.container
+		margin-top: 100px
+		.content
+			.info-box
+				display: flex
+				align-items: center
+				margin-bottom: 20px
+				background: $xam
+				border-radius: 20px
+				padding: 20px
+				color: white
+				.img
+					min-width: 50px
+					i
+						font-size: 2.5rem
+						color: white
+				.info
+					.hd
+						font-weight: 700
+
 
 
