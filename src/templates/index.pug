@@ -4,7 +4,11 @@ extends _layout/layout
 block body
 	#page
 		//- Intro
-		
+		section.intro-section
+			.video-container
+				video(autoplay="true" loop)
+					source(src="./img/walking.mp4" type="video/mp4")
+				.overlay
 		//- Features
 		section#about-me.part-section.about-me-section
 			.container

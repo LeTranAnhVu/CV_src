@@ -5,6 +5,7 @@ $(document).ready(function () {
 	toggleMenu();
 	navItemOnlick();
 	smoothScroll();
+	headerOnScroll();
 });
 
 
@@ -63,12 +64,24 @@ function smoothScroll() {
 			event.preventDefault();
 			// Store hash
 			var hash = this.hash;
+			console.log($(hash).offset().top);
 			$('html, body').animate({
-				scrollTop: $(hash).offset().top
+				scrollTop: $(hash).offset().top - 60
 			}, 800, function () {
 				// Add hash (#) to URL when done scrolling (default click behavior)
-				window.location.hash = hash;
 			});
 		} // End if
 	});
+}
+
+
+function headerOnScroll(){
+	$(window).scroll(function(){
+		let y = $(window).scrollTop();
+		if(y !==0 ){
+			$('header').addClass('scrolled');
+		}else {
+			$('header').removeClass('scrolled');
+		}
+	})
 }

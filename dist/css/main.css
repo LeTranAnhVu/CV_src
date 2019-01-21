@@ -6323,14 +6323,22 @@ html, body {
     width: auto; } }
 
 header {
-  background: #1a1e23; }
+  background: transparent;
+  transition: 0.2s all ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%; }
   header.scrolled {
     position: fixed;
     z-index: 999;
     top: 0;
     left: 0;
-    width: 100%;
-    box-shadow: 0 1px 20px 0 #1a1e23; }
+    box-shadow: 0 1px 20px 0 #1a1e23;
+    background: #1a1e23;
+    padding-top: 5px;
+    padding-bottom: 5px; }
   header nav {
     height: 50px;
     display: flex;
@@ -6459,8 +6467,28 @@ ul {
     left: 0;
     clip-path: polygon(0 0, 100% 0, 50% 100%); }
 
+.intro-section {
+  width: 100%; }
+  .intro-section .video-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; }
+    .intro-section .video-container video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover; }
+    .intro-section .video-container .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(19, 15, 64, 0.5); }
+
 .about-me-section {
-  background: #f5f5f5; }
+  background: #f5f5f5;
+  height: 100vh; }
   .about-me-section p, .about-me-section ul, .about-me-section li {
     color: #616161; }
   .about-me-section i {
@@ -6631,7 +6659,8 @@ ul {
             flex-grow: 1; } }
 
 .skill-section {
-  background: #1a1e23; }
+  background: #1a1e23;
+  height: 100vh; }
   .skill-section .triangle {
     background: #f5f5f5; }
   .skill-section .ability-box {
@@ -6658,7 +6687,8 @@ ul {
               border-radius: 10px; }
 
 .contact-section {
-  position: relative; }
+  position: relative;
+  height: 87vh; }
   .contact-section .container {
     margin-top: 100px; }
     .contact-section .container .content .info-box {
