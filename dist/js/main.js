@@ -37,11 +37,15 @@ $(document).ready(function () {
 	header_wrapped();
 	toggleMenu();
 	navItemOnlick();
-	smoothScroll();
+	onBannerScroll();
 	headerOnScroll();
+	viewMyWork();
+	menuActiveWhenScroll();
 
 	// canvas
 });
+
+var isScrollBusy = false;
 
 function init() {
 	// check the size of window 
@@ -89,19 +93,23 @@ function navItemOnlick() {
 	});
 }
 
-function smoothScroll() {
+function smoothScroll(hash) {
+	// console.log($(hash).offset().top);
+	$('html, body').animate({
+		scrollTop: $(hash).offset().top - 60
+	}, 800, function () {
+		isScrollBusy = false;
+	});
+}
+
+function onBannerScroll() {
 	$("header .nav-link").on('click', function (event) {
-		if (this.hash !== "") {
+		var hash = this.hash;
+		if (hash != "") {
 			event.preventDefault();
-			// Store hash
-			var hash = this.hash;
-			console.log($(hash).offset().top);
-			$('html, body').animate({
-				scrollTop: $(hash).offset().top - 60
-			}, 800, function () {
-				// Add hash (#) to URL when done scrolling (default click behavior)
-			});
-		} // End if
+			isScrollBusy = true;
+			smoothScroll(hash);
+		}
 	});
 }
 
@@ -116,21 +124,108 @@ function headerOnScroll() {
 	});
 }
 
+function menuActiveWhenScroll() {
+	$(window).scroll(function () {
+		if (isScrollBusy === false) {
+			var y = $(window).scrollTop();
+			var offset = parseInt(window.innerHeight / 4);
+			// let hashList = [];
+			var activeLink = null;
+			var minDis = 9999999;
+			$("header .nav-link").each(function (i, item) {
+				var diff = y + offset - $(item.hash).offset().top;
+				if (diff > 0 && diff < minDis) {
+					minDis = diff;
+					// get dom element
+					activeLink = item;
+				}
+			});
+			$("header .nav-item").removeClass('active');
+			if (!$(activeLink).hasClass('active')) {
+				// smoothScroll(activeLink.hash);
+				$(activeLink).parents('.nav-item').addClass('active');
+			}
+		}
+	});
+}
+
+function viewMyWork() {
+	$('#banner-btn').on('click', function () {
+		var hash = '#about-me';
+		smoothScroll(hash);
+	});
+}
+
 // canvas
 
 
-var canvasOuter = $('.intro-section');
+// const canvasOuter = $('.intro-section');
 
-var bcanvas = $('#banner-canvas')[0];
-var w = bcanvas.width = canvasOuter.width();
-var h = bcanvas.height = window.innerHeight;
-var c = bcanvas.getContext("2d");
 
-// c.beginPath();
-// c.ellipse(w/2, h/2 + 100, 100, 50, Math.PI/4, 0, 2 * Math.PI);
-// c.stroke();
+// const bcanvas = $('#banner-canvas')[0];
+// let w = bcanvas.width = canvasOuter.width();
+// let h = bcanvas.height = window.innerHeight;
+// let c = bcanvas.getContext("2d");
 
-var circles = [];
+// function updateTheCavas() {
+// 	$(window).resize(function () {
+
+// 	})
+// }
+
+
+var Banner = {
+	// properties
+	numbOfParticles: 200,
+	radius: 3,
+	paticles: [],
+	canvasOuter: $('.intro-section'),
+	bcanvas: $('#banner-canvas')[0],
+	w: null,
+	h: null,
+	c: null,
+	frame: null,
+	// methods
+	resizeCavas: function resizeCavas() {
+		var _this = this;
+		$(window).resize(function () {
+			_this.updateSizeCanvas();
+		});
+	},
+	updateSizeCanvas: function updateSizeCanvas() {
+		this.w = this.bcanvas.width = this.canvasOuter.width();
+		this.h = this.bcanvas.height = window.innerHeight;
+	},
+	animate: function animate() {
+		var _this2 = this;
+
+		var animateFunc = this.animate.bind(this);
+		this.frame = requestAnimationFrame(animateFunc);
+		this.c.clearRect(0, 0, this.w, this.h);
+		this.paticles.forEach(function (paticle) {
+			paticle.move(_this2.w, _this2.h, _this2.c);
+		});
+	},
+	setup: function setup() {
+		this.resizeCavas();
+		this.updateSizeCanvas();
+		// init
+		this.c = this.bcanvas.getContext("2d");
+		var numb = this.numbOfParticles;
+
+		// create particles
+		for (var index = 0; index < numb; index++) {
+			var x = safeRandomPosition(this.w, this.radius);
+			var y = safeRandomPosition(this.h, this.radius);
+			var p = new Circle(x, y, this.radius);
+			this.paticles.push(p);
+		}
+		// run
+		this.animate();
+	}
+};
+
+Banner.setup();
 
 function Circle(x, y, radius) {
 	this.x = x;
@@ -139,13 +234,13 @@ function Circle(x, y, radius) {
 	this.color = '';
 
 	// velocity
-	this.dx = (Math.random() - 0.5) * 30;
-	this.dy = (Math.random() - 0.5) * 30;
+	this.dx = (Math.random() - 0.5) * 20;
+	this.dy = (Math.random() - 0.5) * 20;
 	this.randomColor = function () {
 		var colors = ['#7ed6df', '#f6e58d', '#badc58', '#c7ecee', '#eb2f06'];
 		this.color = colors[parseInt(Math.random() * colors.length)];
 	};
-	this.updatePosition = function () {
+	this.updatePosition = function (w, h) {
 		if (this.x + this.radius > w || this.x - this.radius < 0) {
 			this.randomColor();
 			this.dx = -this.dx;
@@ -154,26 +249,19 @@ function Circle(x, y, radius) {
 			this.randomColor();
 			this.dy = -this.dy;
 		}
-		// dx += ax;
-		// dy += ay;
-
 		this.x += this.dx;
 		this.y += this.dy;
 	};
-	// #7ed6df
-	// #f6e58d
-	// #badc58
-	// #c7ecee
-	// #eb2f06
-	this.render = function () {
+
+	this.render = function (c) {
 		c.beginPath();
 		c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
 		c.strokeStyle = this.color || 'white';
 		c.stroke();
 	};
-	this.move = function () {
-		this.updatePosition();
-		this.render();
+	this.move = function (w, h, c) {
+		this.updatePosition(w, h);
+		this.render(c);
 	};
 }
 
@@ -186,24 +274,4 @@ function safeRandomPosition(range, padding) {
 	}
 	return pos;
 }
-
-for (var index = 0; index < 80; index++) {
-	var radius = 10;
-	var x = safeRandomPosition(w, radius);
-	var y = safeRandomPosition(h, radius);
-	var _c = new Circle(x, y, radius);
-	// c.render();
-	circles.push(_c);
-}
-
-var frame = void 0;
-function ani() {
-	frame = requestAnimationFrame(ani);
-	c.clearRect(0, 0, w, h);
-	circles.forEach(function (c) {
-		c.move();
-	});
-}
-
-ani();
 //# sourceMappingURL=main.js.map

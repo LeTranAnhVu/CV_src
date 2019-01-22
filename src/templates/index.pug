@@ -8,8 +8,12 @@ block body
 			canvas#banner-canvas
 			.content
 				.content-box
-					h1 Hi! I am Vu
-					h5 Nice to meet you!
+					h1 Hi! I'm 
+						span.name [Le Tran Anh Vu].
+					h1 I'm [front-end developer].
+					button.banner-btn#banner-btn View my work.
+						i.fa.fa-arrow-right.ml-2.banner-arrow-down
+
 		//- Features
 		section#about-me.part-section.about-me-section
 			.container
@@ -112,7 +116,7 @@ block body
 							.portfolio-box.portfolio-box1
 								.overlay
 									.caption
-										h5 Chubb
+										h5 Website công ty bảo hiểm
 										p Angular 7
 								img(src="./img/projects-chubb-800x800.jpg" alt="image")
 					.col-sm-6.col-md-4
@@ -120,7 +124,7 @@ block body
 							.portfolio-box.portfolio-box1
 								.overlay
 									.caption
-										h5 An Cư Corp
+										h5 Website bất động sản
 								img(src="./img/projects-ancu-800x800.jpg" alt="image")
 					.col-sm-6.col-md-4
 						a(href="https://bit.ly/2R8oCpB" title="portfolio" target="_blank")
@@ -153,7 +157,7 @@ block body
 				
 		
 		//- Work experinent
-		section.part-section.section-experinent.container-fluid
+		section#experience.part-section.section-experinent.container-fluid
 			.experinent-box.container
 				h2.title  My Previous Work 
 				ul.epx-list

@@ -4,14 +4,17 @@ $(document).ready(function () {
 	header_wrapped();
 	toggleMenu();
 	navItemOnlick();
-	smoothScroll();
+	onBannerScroll();
 	headerOnScroll();
-
+	viewMyWork();
+	menuActiveWhenScroll();
 
 	// canvas
 
 });
 
+
+let isScrollBusy = false;
 
 function init() {
 	// check the size of window 
@@ -61,22 +64,27 @@ function navItemOnlick() {
 }
 
 
-function smoothScroll() {
-	$("header .nav-link").on('click', function (event) {
-		if (this.hash !== "") {
-			event.preventDefault();
-			// Store hash
-			var hash = this.hash;
-			console.log($(hash).offset().top);
-			$('html, body').animate({
-				scrollTop: $(hash).offset().top - 60
-			}, 800, function () {
-				// Add hash (#) to URL when done scrolling (default click behavior)
-			});
-		} // End if
+function smoothScroll(hash) {
+	// console.log($(hash).offset().top);
+	$('html, body').animate({
+		scrollTop: $(hash).offset().top - 60
+	}, 800, function () {
+		isScrollBusy = false;
 	});
+
 }
 
+function onBannerScroll() {
+	$("header .nav-link").on('click', function (event) {
+		let hash = this.hash;
+		if (hash != "") {
+			event.preventDefault();
+			isScrollBusy = true;
+			smoothScroll(hash);
+			
+		}
+	})
+}
 
 function headerOnScroll() {
 	$(window).scroll(function () {
@@ -90,3 +98,35 @@ function headerOnScroll() {
 }
 
 
+function menuActiveWhenScroll(){
+	$(window).scroll(function () {
+		if(isScrollBusy === false){
+			let y = $(window).scrollTop();
+			let offset = parseInt(window.innerHeight/ 4);
+			// let hashList = [];
+			let activeLink = null;
+			let minDis = 9999999;
+			$("header .nav-link").each(function(i, item){
+				let diff = (y + offset) - $(item.hash).offset().top;
+				if(diff > 0 && diff < minDis){
+					minDis = diff;
+					// get dom element
+					activeLink = item;
+				}
+			});
+			$("header .nav-item").removeClass('active');
+			if(!($(activeLink).hasClass('active'))){
+				// smoothScroll(activeLink.hash);
+				$(activeLink).parents('.nav-item').addClass('active');
+			}
+		}
+	})
+}
+
+
+function viewMyWork() {
+	$('#banner-btn').on('click', function () {
+		let hash = '#about-me'
+		smoothScroll(hash);
+	})
+}
