@@ -6,6 +6,10 @@ $(document).ready(function () {
 	navItemOnlick();
 	smoothScroll();
 	headerOnScroll();
+	window.addEventListener("resize", function () {
+		deBouncer();
+	});
+
 });
 
 
@@ -75,13 +79,15 @@ function smoothScroll() {
 }
 
 
-function headerOnScroll(){
-	$(window).scroll(function(){
+function headerOnScroll() {
+	$(window).scroll(function () {
 		let y = $(window).scrollTop();
-		if(y !==0 ){
+		if (y !== 0) {
 			$('header').addClass('scrolled');
-		}else {
+		} else {
 			$('header').removeClass('scrolled');
 		}
 	})
 }
+
+

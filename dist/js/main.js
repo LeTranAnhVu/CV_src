@@ -39,6 +39,9 @@ $(document).ready(function () {
 	navItemOnlick();
 	smoothScroll();
 	headerOnScroll();
+	window.addEventListener("resize", function () {
+		deBouncer();
+	});
 });
 
 function init() {
