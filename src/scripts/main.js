@@ -6,12 +6,11 @@ $(document).ready(function () {
 	navItemOnlick();
 	smoothScroll();
 	headerOnScroll();
-	window.addEventListener("resize", function () {
-		deBouncer();
-	});
+
+
+	// canvas
 
 });
-
 
 
 function init() {

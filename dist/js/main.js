@@ -39,9 +39,8 @@ $(document).ready(function () {
 	navItemOnlick();
 	smoothScroll();
 	headerOnScroll();
-	window.addEventListener("resize", function () {
-		deBouncer();
-	});
+
+	// canvas
 });
 
 function init() {
@@ -116,4 +115,95 @@ function headerOnScroll() {
 		}
 	});
 }
+
+// canvas
+
+
+var canvasOuter = $('.intro-section');
+
+var bcanvas = $('#banner-canvas')[0];
+var w = bcanvas.width = canvasOuter.width();
+var h = bcanvas.height = window.innerHeight;
+var c = bcanvas.getContext("2d");
+
+// c.beginPath();
+// c.ellipse(w/2, h/2 + 100, 100, 50, Math.PI/4, 0, 2 * Math.PI);
+// c.stroke();
+
+var circles = [];
+
+function Circle(x, y, radius) {
+	this.x = x;
+	this.y = y;
+	this.radius = radius;
+	this.color = '';
+
+	// velocity
+	this.dx = (Math.random() - 0.5) * 30;
+	this.dy = (Math.random() - 0.5) * 30;
+	this.randomColor = function () {
+		var colors = ['#7ed6df', '#f6e58d', '#badc58', '#c7ecee', '#eb2f06'];
+		this.color = colors[parseInt(Math.random() * colors.length)];
+	};
+	this.updatePosition = function () {
+		if (this.x + this.radius > w || this.x - this.radius < 0) {
+			this.randomColor();
+			this.dx = -this.dx;
+		}
+		if (this.y + this.radius > h || this.y - this.radius < 0) {
+			this.randomColor();
+			this.dy = -this.dy;
+		}
+		// dx += ax;
+		// dy += ay;
+
+		this.x += this.dx;
+		this.y += this.dy;
+	};
+	// #7ed6df
+	// #f6e58d
+	// #badc58
+	// #c7ecee
+	// #eb2f06
+	this.render = function () {
+		c.beginPath();
+		c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+		c.strokeStyle = this.color || 'white';
+		c.stroke();
+	};
+	this.move = function () {
+		this.updatePosition();
+		this.render();
+	};
+}
+
+function safeRandomPosition(range, padding) {
+	var pos = parseInt(Math.random() * range);
+	if (pos > range - padding) {
+		pos = range - padding;
+	} else if (pos < padding) {
+		pos = padding;
+	}
+	return pos;
+}
+
+for (var index = 0; index < 80; index++) {
+	var radius = 10;
+	var x = safeRandomPosition(w, radius);
+	var y = safeRandomPosition(h, radius);
+	var _c = new Circle(x, y, radius);
+	// c.render();
+	circles.push(_c);
+}
+
+var frame = void 0;
+function ani() {
+	frame = requestAnimationFrame(ani);
+	c.clearRect(0, 0, w, h);
+	circles.forEach(function (c) {
+		c.move();
+	});
+}
+
+ani();
 //# sourceMappingURL=main.js.map
