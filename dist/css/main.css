@@ -6531,9 +6531,9 @@ ul {
       background: #E31B6D; }
   .about-me-section .figure-box figure {
     overflow: hidden;
-    border-radius: 50%;
     max-width: 50%;
-    margin: 20px auto; }
+    margin: 20px auto;
+    height: 50%; }
   .about-me-section .figure-box figcaption {
     margin-left: 20px; }
     .about-me-section .figure-box figcaption ul li strong {
